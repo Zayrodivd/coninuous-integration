@@ -1,0 +1,18 @@
+on:
+   issues:
+     types: ['opened', 'reopened']
+   pull_request:
+     types: ['opened', 'reopened']
+
+ jobs:
+   state_event_type:
+     runs-on: ubuntu-latest
+     steps:
+     - name: if_issue
+       if: github.event.issue
+       run: |
+         echo An issue was opened
+     - name: if_pr
+      if: github.event.pull_request
+       run: |
+         echo A pull request was opened
